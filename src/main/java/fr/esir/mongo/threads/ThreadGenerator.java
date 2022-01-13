@@ -37,13 +37,13 @@ public class ThreadGenerator implements Processor {
     exchange.getIn().setBody(generateThread());
   }
 
-  // TODO manage post/thread/user relationship
   private Thread generateThread() {
     User randomKnownUser = userGenerator.getRandomKnownUser();
     if (randomKnownUser != null) {
       String idString = Long.toString(id.getAndIncrement());
       Thread newThread = Thread.builder()
               ._id(idString)
+              .user_id(randomKnownUser.get_id())
               .title(textGenerator.generateText(1))
               .build();
 

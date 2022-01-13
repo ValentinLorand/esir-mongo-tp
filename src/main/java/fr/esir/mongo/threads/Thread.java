@@ -20,4 +20,6 @@ public class Thread {
   private final String _id;
   
   private final String title;
+
+  private final String user_id;
 }
