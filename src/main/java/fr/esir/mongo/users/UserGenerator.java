@@ -73,18 +73,9 @@ public class UserGenerator implements Processor {
   }
 
   public User getRandomKnownUser() {
-    // TODO improve this method (we should use another collection to get random user in a faster way)
-    Iterator<User> iterator = knownUsers.values().iterator();
-
-    User retValue = null;
-    if (!knownUsers.isEmpty()) {
-      int nextPos = RANDOM.nextInt(knownUsers.size());
-
-      for (int i = 0; i <= nextPos; i++) {
-        retValue = iterator.next();
-      }
-    }
-
-    return retValue;
+    return knownUsers.values().stream()
+            .skip((int) (knownUsers.size() * Math.random()))
+            .findFirst()
+            .orElse(null);
   }
 }
