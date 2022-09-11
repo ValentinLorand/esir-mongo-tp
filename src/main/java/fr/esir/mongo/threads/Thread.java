@@ -21,5 +21,7 @@ public class Thread {
   
   private final String title;
 
+  private final String[] tag;
+
   private final String user_id;
 }

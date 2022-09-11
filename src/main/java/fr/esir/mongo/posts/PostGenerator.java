@@ -44,8 +44,8 @@ public class PostGenerator implements Processor {
       String idString = Long.toString(id.getAndIncrement());
       Post newPost = Post.builder()
               ._id(idString)
-              .title(textGenerator.generateText(1))
-              .content(textGenerator.generateText(10))
+              .title(textGenerator.generateText(10))
+              .content(textGenerator.generateText(10000))
               .user_id(randomKnownUser.get_id())
               .thread_id(randomThread.get_id())
               .build();

@@ -43,6 +43,7 @@ public class ThreadGenerator implements Processor {
       String idString = Long.toString(id.getAndIncrement());
       Thread newThread = Thread.builder()
               ._id(idString)
+              .tag(textGenerator.generateTags(RANDOM.nextInt(4)+1))
               .user_id(randomKnownUser.get_id())
               .title(textGenerator.generateText(1))
               .build();

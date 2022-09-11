@@ -28,7 +28,7 @@ public class PostRouter extends EndpointRouteBuilder {
 
     from(direct(ADD_POST))
             .id(ADD_POST)
-            .to(stream("out"))
+//            .to(stream("out"))
             // TODO manage links between posts <-> threads            
             .to(mongodb("mongo").database("forum").collection("posts").operation(insert));
   }
